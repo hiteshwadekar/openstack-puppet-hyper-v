@@ -1,2 +1,2 @@
-powershell.exe  Add-WindowsFeature FS-iSCSITarget-Server
+Add-WindowsFeature FS-iSCSITarget-Server
 
