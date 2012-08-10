@@ -18,7 +18,7 @@ class setuptools() {
     include python273
 
     package { 'setuptools-0.6c11.win32.py27':
-	source => 'http://pypi.python.org/packages/2.7/s/setuptools/setuptools-0.6c11.win32-py2.7.exe'
+	source => 'http://pypi.python.org/packages/2.7/s/setuptools/setuptools-0.6c11.win32-py2.7.exe',
         provider => msi,
         ensure   => installed,
     }
@@ -29,7 +29,7 @@ class m2crypto() {
 
     include python273
     package { 'M2Crypto-0.21.1-win32-py2.7':
-	source => 'http://chandlerproject.org/pub/Project/MeTooCrypto/M2Crypto-0.21.1.win32-py2.7.exe'
+	source => 'http://chandlerproject.org/pub/Project/MeTooCrypto/M2Crypto-0.21.1.win32-py2.7.exe',
         provider => msi,
         ensure   => installed,
     }
@@ -38,7 +38,7 @@ class pywin32() {
 
     include python723
     package { 'pywin32-217.win32-py2.7':
-	source => 'http://sourceforge.net/projects/pywin32/files/pywin32/Build%20217/pywin32-217.win32-py2.7.exe'
+	source => 'http://sourceforge.net/projects/pywin32/files/pywin32/Build%20217/pywin32-217.win32-py2.7.exe',
         provider => msi,
         ensure   => installed,
     }
