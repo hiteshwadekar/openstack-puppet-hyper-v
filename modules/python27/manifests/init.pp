@@ -254,5 +254,8 @@ class pip() {
          command => "C:\Python27\Scripts\pip.exe install python-cinderclient",
       }
 
-
 }
+
+#
+# Placeholder for python-cinderclient
+##

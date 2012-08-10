@@ -1,1 +1,1 @@
-winrm set winrm/config/client `@`{TrustedHosts=`"`*`"`}
+winrm set winrm/config/client @{TrustedHosts="*"}
