@@ -1,20 +1,20 @@
-mkdir C:\Temp
-  call copype.cmd x86 C:\Temp\Boot
+set BASEDIR=%1
   del /Q etfsboot.com
   move ISO\boot\boot.sdi boot.sdi
   rmdir /S /Q ISO
-  imagex /mount winpe.wim 1 mount
-  copy mount\Windows\Boot\PXE\pxeboot.n12 pxeboot.n12
-  copy mount\Windows\Boot\PXE\bootmgr.exe bootmgr.exe
-  copy mount\Windows\System32\bcdedit.exe bcdedit.exe
-  imagex /unmount mount
-  rmdir /Q mount
+  dism /Mount-Wim /WimFile:%BASEDIR%\winpe.wim /index:1 /MountDir:%BASEDIR%\mount
+  copy %BASEDIR%\mount\Windows\Boot\PXE\pxeboot.n12 pxeboot.n12
+  copy %BASEDIR%\mount\Windows\Boot\PXE\bootmgr.exe bootmgr.exe
+  copy %BASEDIR%\mount\Windows\System32\bcdedit.exe bcdedit.exe
+  dism /Unmount-Wim /MountDir:%BASEDIR%\mount /commit
+  rmdir /Q %BASEDIR%\mount
+  del /Q BCD
   bcdedit -createstore BCD
   set BCDEDIT=bcdedit -store BCD
   %BCDEDIT% -create {ramdiskoptions} -d "Ramdisk options"
   %BCDEDIT% -set {ramdiskoptions} ramdisksdidevice boot
   %BCDEDIT% -set {ramdiskoptions} ramdisksdipath \Boot\boot.sdi
-  for /f "tokens=3" %a in ('%BCDEDIT% -create -d "Windows PE" -application osloader') do set GUID=%a
+  for /f "tokens=3" %%a in ('%BCDEDIT% -create -d "Windows PE" -application osloader') do set GUID=%%a
   %BCDEDIT% -set %GUID% systemroot \Windows
   %BCDEDIT% -set %GUID% detecthal Yes
   %BCDEDIT% -set %GUID% winpe Yes
