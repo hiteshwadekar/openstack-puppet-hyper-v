@@ -36,7 +36,7 @@ class m2crypto() {
 }
 class pywin32() {
 
-    include python723
+    include python273
     package { 'pywin32-217.win32-py2.7':
 	source => 'http://sourceforge.net/projects/pywin32/files/pywin32/Build%20217/pywin32-217.win32-py2.7.exe',
         provider => msi,
@@ -47,7 +47,7 @@ class pywin32() {
 
 class mysql-python() {
 
-    include python723
+    include python273
     include WINDOWS_TMP
 
     file { 'c:\windows\Temp\MySQL-python-1.2.3.win32-py2.7.exe':
@@ -63,7 +63,7 @@ class mysql-python() {
 
 class greenlet() {
 
-    include python723
+    include python273
     
     exec { 'map_winterop_drive':
          command => '%SYSTEMROOT%\system32\net use w: \\10.1.1.4\winterop',
@@ -82,7 +82,7 @@ class greenlet() {
 
 class pip() {
 
-      include python723
+      include python273
       include setuptools
 
       file { 'C:\Python27\Scripts\pip.exe':
