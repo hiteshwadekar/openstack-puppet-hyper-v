@@ -1,7 +1,7 @@
 class python273 {
 
     package { "Python-2.7.3":
-	source => 'http://www.python.org/ftp/python/2.7.3/python-2.7.3.msi',
+	source => "http://www.python.org/ftp/python/2.7.3/python-2.7.3.msi",
         provider => msi,
         ensure   => installed,
     }
@@ -9,7 +9,7 @@ class python273 {
 
 
 file { "WINDOWS_TMP":
-    path   => "C:\windows\Temp",
+    path   => "C:\Windows\Temp",
     ensure => directory,
 }
 
@@ -25,7 +25,7 @@ class setuptools() {
 }
 
 
-class m2crypto () {
+class m2crypto() {
 
     include python273
     package { "M2Crypto-0.21.1-win32-py2.7":
@@ -34,7 +34,7 @@ class m2crypto () {
         ensure   => installed,
     }
 }
-class pywin32 () {
+class pywin32() {
 
     include python723
     package { "pywin32-217.win32-py2.7":
@@ -45,7 +45,7 @@ class pywin32 () {
 }
     
 
-class mysql-python () {
+class mysql-python() {
 
     include python723
     include WINDOWS_TMP
@@ -61,7 +61,7 @@ class mysql-python () {
     }
 }
 
-class greenlet () {
+class greenlet() {
 
     include python723
     
