@@ -1,3 +1,65 @@
+class openstack-dirs {
+  file { 'C:\openstack',
+  ensure => directory,
+  }
+
+  file { 'C:\openstack\log',
+    ensure => directory,
+  }
+
+  file { 'C:\openstack\instances',
+    ensure => directory,
+  }
+
+  file { 'C:\openstack\vhd',
+    ensure => directory,
+  }
+  file { 'C:\openstack\scripts',
+    ensure => directory,
+  }
+}
+
+class firewall-disable {
+  file { 'C:\openstack\scripts\firewall-disable.ps1'
+    source => 'puppet://',
+  }
+  exec { 'fw-disable'
+    command => 'C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -executionpolicy remotesigned -file C:\openstack\scripts\firewall-disable.ps1',
+  }
+}
+
+class ntp_enable {
+   service { 'w32time',
+     ensure => 'stop',
+   }
+   exec { 'set_time_peer', 
+     command => 'w32tm /config /manualpeerlist:bonehead.ics.mit.edu,0x8 /syncfromflags:MANUAL',
+   }
+   service { 'w32time',
+     ensure => 'running',
+     enable => true,
+   }
+}
+
+
+class iscsi_enable {
+    service { 'MSiSCSI',
+      ensure => 'running',
+      enable => true,
+    }
+}
+
+
+class git {
+
+    package { "git-1711":
+        source => 'http://code.google.com/p/msysgit/downloads/detail?name=Git-1.7.11-preview20120710.exe&can=2&q=full+installer+official+git',
+        provider => msi,
+        ensure   => installed,
+    }
+}
+
+
 class python273 {
 
     package { 'Python-2.7.3':
