@@ -11,5 +11,8 @@ class install_features {
   exec { 'file_services',
    command => 'C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -executionpolicy remotesigned Install-Windows-Feature File-Services',
   }
+  exec { 'server_gui_mgmt',
+   command => 'C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -executionpolicy remotesigned Install-Windows-Feature Server-Gui-Mgmt-Infra',
+  }
 
 }
