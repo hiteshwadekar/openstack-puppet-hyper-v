@@ -1,5 +1,5 @@
 class iscsi_enable {
-    service { 'MSiSCSI',
+    service { 'MSiSCSI':
       ensure => 'running',
       enable => true,
     }

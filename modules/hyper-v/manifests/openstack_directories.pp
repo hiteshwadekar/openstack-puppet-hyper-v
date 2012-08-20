@@ -1,20 +1,20 @@
 class openstack-dirs {
-  file { 'C:\openstack',
+  file { 'C:\openstack':
   ensure => directory,
   }
 
-  file { 'C:\openstack\log',
+  file { 'C:\openstack\log':
     ensure => directory,
   }
 
-  file { 'C:\openstack\instances',
+  file { 'C:\openstack\instances':
     ensure => directory,
   }
 
-  file { 'C:\openstack\vhd',
+  file { 'C:\openstack\vhd':
     ensure => directory,
   }
-  file { 'C:\openstack\scripts',
+  file { 'C:\openstack\scripts':
     ensure => directory,
   }
 }
