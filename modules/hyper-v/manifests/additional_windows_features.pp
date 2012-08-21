@@ -1,4 +1,4 @@
-class install_features {
+class hyper-v::install_features {
   exec { 'rsat':
    command => 'C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -executionpolicy remotesigned Install-Windows-Feature RSAT',
   }
