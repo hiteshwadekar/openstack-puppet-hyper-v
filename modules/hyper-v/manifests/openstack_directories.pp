@@ -1,4 +1,4 @@
-class hyper-v::openstack-dirs {
+class hyper-v::openstack_directories {
   file { 'C:\openstack':
   ensure => directory,
   }
