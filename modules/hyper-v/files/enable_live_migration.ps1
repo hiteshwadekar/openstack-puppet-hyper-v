@@ -1,3 +1,3 @@
 Enable-VMMigration
-Set-VMMigrationNetwork 192.168.10.1
+Set-VMMigrationNetwork 10.21.7.0
 Set-VMHost –VirtualMachineMigrationAuthenticationType Kerberos
