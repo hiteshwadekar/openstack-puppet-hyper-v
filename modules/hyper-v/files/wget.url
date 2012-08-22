@@ -1,0 +1,4 @@
+http://www.python.org/ftp/python/2.7.3/python-2.7.3.msi
+http://pypi.python.org/packages/2.7/s/setuptools/setuptools-0.6c11.win32-py2.7.exe
+http://chandlerproject.org/pub/Project/MeTooCrypto/M2Crypto-0.21.1.win32-py2.7.exe
+wget -O MySQL-python-1.2.3.win32.py2.7.exe -cv http://codegood.com/download/10/
